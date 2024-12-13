@@ -1,0 +1,70 @@
+/* Estilos generales para el contenedor de la barra de búsqueda */
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+/* Estilo de la barra de búsqueda */
+input[type="text"] {
+  width: 100%;
+  max-width: 480px; /* Máximo tamaño de la barra */
+  padding: 16px 20px;
+  border: 2px solid #00ff00; /* Verde fluorescente */
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: #2c2c2c; /* Fondo oscuro, inspirado en el espacio */
+  color: #00ff00; /* Verde brillante para el texto */
+  outline: none;
+  font-family: "Courier New", Courier, monospace; /* Fuente retro */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Sombra de texto */
+  transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilos al hacer focus en la barra de búsqueda */
+input[type="text"]:focus {
+  border-color: #ff00ff; /* Morado brillante */
+  background-color: #333333; /* Fondo oscuro */
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.8); /* Efecto de resplandor morado */
+  animation: glitch 1.5s infinite; /* Efecto de glitch en el texto */
+}
+
+/* Placeholder con estilo */
+input[type="text"]::placeholder {
+  color: #888; /* Gris claro para el placeholder */
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+/* Efecto de glitch */
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.8),
+      -1px -1px 2px rgba(255, 0, 255, 0.8);
+  }
+  50% {
+    text-shadow: -1px -1px 2px rgba(0, 255, 0, 0.8),
+      1px 1px 2px rgba(255, 0, 255, 0.8);
+  }
+  100% {
+    text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.8),
+      -1px -1px 2px rgba(255, 0, 255, 0.8);
+  }
+}
+
+/* Efecto al hacer hover sobre el input */
+input[type="text"]:hover {
+  border-color: #00ff00; /* Verde brillante al hacer hover */
+  background-color: #222222; /* Fondo oscuro */
+}
+
+/* Estilos responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+  input[type="text"] {
+    padding: 12px;
+    font-size: 16px; /* Reducir tamaño de fuente en pantallas pequeñas */
+  }
+}

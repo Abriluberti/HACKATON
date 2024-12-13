@@ -1,20 +1,42 @@
+/* .App (Contenedor principal) */
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #141414; /* Fondo oscuro para resaltar los colores brillantes */
+  font-family: 'Press Start 2P', cursive, sans-serif; /* Tipografía retro y cómica */
+  background: linear-gradient(45deg, rgba(56, 255, 86, 0.8), rgba(0, 255, 255, 0.8)); /* Colores vivos inspirados en la serie */
+  background-size: 400% 400%;
+  animation: gradientBackground 10s ease infinite;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Animación de fondo */
+@keyframes gradientBackground {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 
+/* Logo de la aplicación */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  animation: App-logo-spin infinite 10s linear;
+}
+
+/* Encabezado principal */
 .App-header {
-  background-color: #282c34;
+  background-color: #20232a; /* Color oscuro para el encabezado */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,94 +44,115 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow: 0 4px 6px rgba(0, 255, 255, 0.5); /* Resplandor de ciencia */
+  animation: slideIn 1s ease-in-out; /* Animación de deslizamiento */
 }
 
+/* Estilo de enlace */
 .App-link {
   color: #61dafb;
+  text-decoration: underline;
+  font-weight: bold;
 }
+
 /* Barra de búsqueda */
 .search-bar {
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 12px;
   width: 100%;
   max-width: 400px;
   border-radius: 8px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  border: 2px solid #00ff00; /* Verde brillante como los portales */
+  background-color: #1c1c1c; /* Fondo oscuro */
+  color: white;
   font-size: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+  transform: scale(1.05);
 }
 
 /* Botón de ordenación */
 .sort-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff0044 0%, #00ff99 100%); /* Colores vibrantes */
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .sort-button:hover {
-  background-color: #45a049;
+  background-color: #ff3300; /* Rojo brillante */
+  transform: scale(1.05);
 }
+
+.sort-button:active {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra en los botones al hacer click */
+}
+
 /* Estilo para las tarjetas de personajes */
 .character-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #262626; /* Fondo oscuro para las tarjetas */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   text-align: center;
-  padding: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s ease-in-out;
+  position: relative;
 }
 
+/* Efecto de hover en las tarjetas */
 .character-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
 }
 
+/* Imagen del personaje */
 .character-card img {
   width: 100%;
-  height: auto;
-  border-radius: 50%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3); /* Efecto sci-fi alrededor de las imágenes */
 }
 
+/* Nombre del personaje */
 .character-card h2 {
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.5rem;
+  color: #ff61a6; /* Color rosa inspirado en la serie */
   margin-top: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.5); /* Efecto de resplandor */
 }
 
+/* Especie del personaje */
 .character-card p {
-  color: #555;
+  color: #ddd;
   font-size: 1rem;
   margin-bottom: 15px;
 }
 
+/* Botón de favoritos */
 .character-card .favorite-btn {
-  padding: 8px 16px;
-  background-color: #ff4081;
+  padding: 10px 20px;
+  background-color: #00ff00; /* Verde similar a los portales de Rick */
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .character-card .favorite-btn:hover {
-  background-color: #e0006c;
-}
-
-/* Estilo para la página en general */
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f4f4f9;
-  font-family: 'Arial', sans-serif;
+  background-color: #00cc00;
 }
 
 /* Contenedor para los personajes */
@@ -117,6 +160,7 @@
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
+  margin-top: 30px;
 }
 
 /* Grid de personajes */
@@ -127,11 +171,27 @@
   margin-top: 20px;
 }
 
+/* Efecto de texto en los títulos */
+.text-shadow-lg {
+  text-shadow: 3px 3px 10px rgba(0, 255, 255, 0.4); /* Resplandor futurista */
+}
+
+/* Animación del logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Nueva animación de deslizamiento */
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }

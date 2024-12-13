@@ -1,5 +1,6 @@
 import React from 'react';
-
+import './SortButton.css';
+ 
 interface SortButtonProps {
   sortOrder: string;
   setSortOrder: React.Dispatch<React.SetStateAction<string>>;

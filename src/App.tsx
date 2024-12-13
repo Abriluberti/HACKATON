@@ -3,6 +3,7 @@ import SearchBar from "./components/SearchBar";
 import SortButton from "./components/SortButton";
 import CharacterCard from "./components/CharacterCard";
 import './App.css';
+
 interface Character {
   id: number;
   name: string;
@@ -64,20 +65,19 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App min-h-screen bg-gradient-to-r from-green-400 via-blue-500 to-indigo-600">
-      <div className="container mx-auto p-8">
-        <h1 className="text-6xl font-extrabold text-center text-white mb-12 text-shadow-lg tracking-wide">
+    <div className="App">
+      <div className="container">
+        <h1 className="text-6xl font-extrabold text-white mb-12 text-shadow-lg tracking-wide">
           Rick and Morty Characters
         </h1>
 
         <SearchBar search={search} setSearch={setSearch} />
-
         <SortButton sortOrder={sortOrder} setSortOrder={setSortOrder} />
 
         {loading ? (
           <div className="text-center text-lg text-yellow-200 animate-pulse">Loading...</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+          <div className="grid">
             {sortCharacters(filteredCharacters).map((character) => (
               <CharacterCard
                 key={character.id}
